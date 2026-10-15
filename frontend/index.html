@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Slyce</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Slyce</h1>
+    <p>Split every paycheck: 50% needs · 30% wants · 20% savings</p>
+    <button id="logout" hidden>Log out</button>
+  </header>
+
+  <main>
+    <!-- Login / register -->
+    <section id="auth-section" class="card">
+      <h2>Log in or sign up</h2>
+      <form id="auth-form">
+        <input id="email" type="email" placeholder="Email" required>
+        <input id="password" type="password" placeholder="Password (8+ characters)" minlength="8" required>
+        <div class="row">
+          <button type="submit" data-action="login">Log in</button>
+          <button type="submit" data-action="register" class="secondary">Sign up</button>
+        </div>
+      </form>
+      <p id="auth-msg" class="msg"></p>
+    </section>
+
+    <div id="app-section" hidden>
+      <!-- Add paycheck -->
+      <section class="card">
+        <h2>Add a paycheck</h2>
+        <form id="paycheck-form">
+          <label>Amount (£) <input id="amount" type="number" step="0.01" min="0.01" required></label>
+          <label>Paid on <input id="paid-on" type="date" required></label>
+          <button type="submit">Split it</button>
+        </form>
+        <div id="split-result"></div>
+      </section>
+
+      <!-- Savings tracker -->
+      <section class="card">
+        <h2>Savings tracker</h2>
+        <form id="savings-form" class="row wrap">
+          <label>Since <input id="since" type="date"></label>
+          <label>Interest % <input id="rate" type="number" step="0.1" min="0" max="20" value="0"></label>
+          <label>What I've actually saved (£) <input id="actual" type="number" step="0.01" min="0"></label>
+          <button type="submit">Check</button>
+        </form>
+        <div id="savings-result"></div>
+      </section>
+
+      <!-- History -->
+      <section class="card">
+        <h2>History</h2>
+        <table>
+          <thead><tr><th>Date</th><th>Amount</th><th>Needs</th><th>Wants</th><th>Savings</th><th></th></tr></thead>
+          <tbody id="history"></tbody>
+        </table>
+      </section>
+
+      <!-- Stock explorer -->
+      <section class="card">
+        <h2>Stock explorer <small>(education only, not advice)</small></h2>
+        <form id="stock-form" class="row wrap">
+          <input id="stock-q" placeholder="Search e.g. Apple, S&P">
+          <select id="period">
+            <option value="1mo">1 month</option><option value="6mo">6 months</option>
+            <option value="1y" selected>1 year</option><option value="5y">5 years</option>
+          </select>
+          <button type="submit">Search</button>
+        </form>
+        <ul id="stock-list"></ul>
+        <div id="stock-detail"></div>
+      </section>
+    </div>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
