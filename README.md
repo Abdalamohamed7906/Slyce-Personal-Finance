@@ -1,6 +1,6 @@
 # Splyce 💰
 
-A full-stack budgeting app that automatically splits your paycheck using the **60/20/20 rule** (needs / wants / savings), designed to help young people build better money habits.
+A full-stack budgeting app that automatically splits your paycheck using the **50/30/20 rule** (needs / wants / savings), designed to help young people build better money habits.
 
 > 🚧 **Status:** In progress
 
